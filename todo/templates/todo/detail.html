@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="form-center">
+        <div class="form-wrapper">
+            <div class="header-container">
+                <a href="{% url 'todo:home' %}">
+                    <img src="{% static 'img/undo.png' %}" class="header-img" alt="not found">
+                </a>
+                <h2 class="header-title">To-do</h2>
+            </div>
+            <hr>
+
+            <form class="form-control">
+                {% csrf_token %}
+                
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" class="form-control" readonly value="{{ todo.title }}"><br>
+                
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" class="form-control" readonly style='min-height:140px; max-height:140px'>{{ todo.description }}</textarea><br>
+                
+                <label for="created-at">Created at:</label>
+                <input type="text" id="created-at" name="created-at" class="form-control" readonly value="{{ todo_created_at }}">
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

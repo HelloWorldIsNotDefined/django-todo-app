@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="form-center">
+        <div class="form-wrapper">
+
+            <h2>Are you sure? </h2><hr>
+
+            <div class="form-delete">
+
+                <form action="{% url 'accounts:delete' request.user.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="delete" class="btn btn-secondary ">
+                </form>
+                
+                <a href="{% url 'accounts:profile' %}" class="btn btn-danger">cancel</a>
+
+            </div>
+
+        </div>
+    </div>
+
+    
+
+{% endblock %}

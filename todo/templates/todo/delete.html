@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="form-center">
+
+        <div class="form-wrapper">
+            <h2>Are you sure? </h2><hr>
+
+            <div class="form-delete">
+                <form action="{% url 'todo:delete' pk %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="delete" class="btn btn-secondary ">
+                </form>
+                <a href="{% url 'todo:home' %}" class="btn btn-danger">cancel</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

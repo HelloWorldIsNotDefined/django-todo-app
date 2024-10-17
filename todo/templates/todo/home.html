@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if request.user.is_authenticated %}
+
+        {% include 'todo/authenticated_user.html' %}
+
+    {% else %}
+
+        {% include 'todo/anonymous_user.html' %}
+
+    {% endif %}
+
+{% endblock %}

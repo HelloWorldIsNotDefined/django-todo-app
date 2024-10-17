@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="form-center">
+        <div class="form-wrapper">
+            <div class="header-container">
+                <a href="{% url 'todo:home' %}">
+                    <img src="{% static 'img/undo.png' %}" alt="not found" class="header-img">
+                </a>
+                <h2 class="header-title">Create</h2>
+            </div><hr>
+
+            <form method="post" novalidate>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="create" class="form-input">
+            </form>
+        </div>
+    </div>
+    
+{% endblock %}
